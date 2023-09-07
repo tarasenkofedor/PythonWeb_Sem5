@@ -1,0 +1,17 @@
+{% extends 'repair_service/snippets/base.html' %}
+{% load static %}
+
+{% block title %}Creating service{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'repair_service/css/create.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Creation form</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}

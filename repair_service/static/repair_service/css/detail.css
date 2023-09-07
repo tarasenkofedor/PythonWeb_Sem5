@@ -1,0 +1,104 @@
+.service-detail {
+    text-align: center;
+}
+
+.service-image {
+    margin: 0 25%;
+    height: 50%;
+    width: 50%;
+}
+
+.service-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.service-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.service-type {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.cost {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.button-style {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.service-description {
+    margin-bottom: 20px;
+}
+
+.admin-links {
+    margin-top: 20px;
+}
+
+.admin-link {
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+
+.detail-button {
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.delete-button {
+    background-color: #FF0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-button {
+    background-color: #FFC107;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.bottom-right {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.joke {
+    font-style: italic;
+}

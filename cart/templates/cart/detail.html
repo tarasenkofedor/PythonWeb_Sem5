@@ -1,0 +1,72 @@
+{% extends "repair_service/snippets/base.html" %}
+{% load static %}
+
+{% block title %}
+    Корзина покупок
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'cart/css/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Корзина покупок</h1>
+    <table class="cart">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>service</th>
+            <th>Update quantity</th>
+            <th>Remove</th>
+            <th>Quantity</th>
+            <th>Unit price</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in cart %}
+            {% with service=item.service %}
+                <tr>
+                    <td>
+                        <div class="service-image">
+                            <img src="
+                                {% if service.image %}
+                                {{ service.image.url }}
+                                {% else %}
+                                {% static 'cart/img/no_content.png' %}
+                                {% endif %}"
+                                 alt="Service photo">
+                        </div>
+                    </td>
+                    <td>{{ service.name }}</td>
+                    <td>
+                        <form action="{% url 'cart:cart_add' service.id %}" method="post">
+                            {{ item.update_quantity_form.quantity }}
+                            {{ item.update_quantity_form.update }}
+                            <input type="submit" value="Обновить">
+                            {% csrf_token %}
+                        </form>
+                    </td>
+                    <td><a href="{% url 'cart:cart_remove' service.id %}">Delete</a></td>
+                    <td>
+                        {{ item.quantity }}
+                    </td>
+                    <td class="num">{{ item.cost }}</td>
+                    <td class="num">{{ item.total_cost }}</td>
+                </tr>
+            {% endwith %}
+        {% endfor %}
+        <tr class="total">
+            <td>Total</td>
+            <td colspan="5"></td>
+            <td class="num">{{ cart.get_total_price }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="text-right">
+        <a href="{% url 'service_list' %}" class="button light">To services</a>
+        <a href="{% url 'order_create' %}" class="button">
+            Checkout
+        </a>
+    </p>
+{% endblock %}

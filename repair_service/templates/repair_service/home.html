@@ -1,0 +1,25 @@
+{% extends 'repair_service/snippets/base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'repair_service/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="image">
+            <img src="{% static 'repair_service/img/background.jpg' %}" alt="">
+            <div class="overlay"></div>
+            <div class="content">
+                <h1>Welcome to Repair Service</h1>
+                <p>We offer high-quality repair services for all your electronic devices.</p>
+                <p>Contact us today to get your devices fixed!</p>
+                <a href="{% url 'service_list' %}" class="cta-button">See available services</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

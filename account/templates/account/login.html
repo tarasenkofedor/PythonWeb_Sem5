@@ -1,0 +1,44 @@
+{% extends 'repair_service/snippets/base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'account/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <form class="form-signin" method="post">
+        {% csrf_token %}
+        <div class="d-flex flex-column pb-3"></div>
+
+        <h1 class="h3 mb-3 font-weight-normal">Login to Repair Service</h1>
+
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required
+               autofocus>
+
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+        {% for field in login_form %}
+            <p>
+                {% for error in field.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </p>
+        {% endfor %}
+        {% if login_form.non_field_errors %}
+            <div style="color: red">
+                <p>{{ login_form.non_field_errors }}</p>
+            </div>
+
+        {% endif %}
+
+        <button class="btn btn-lg btn-primary btn-block stretch-btn" type="submit">Sign in</button>
+
+    </form>
+    {##}
+    {#    <div class="d-flex flex-column">#}
+    {#        <a class="m-auto" href="{% url 'password_reset' %}">Reset password</a>#}
+    {#    </div>#}
+
+{% endblock content %}

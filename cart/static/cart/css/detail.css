@@ -1,0 +1,75 @@
+.service-image {
+    margin: 0 25%;
+    height: 50%;
+    width: 50%;
+}
+
+.service-image img {
+    max-width: 200px;
+    max-height: 400px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* Styling for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Styling for table cells */
+td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Styling for the table header row */
+thead th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Styling for the total row */
+tr.total td {
+  font-weight: bold;
+  border: 1px solid #ccc;
+}
+
+/* Styling for the dividing line between columns */
+td:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+/* Styling for the "Update" button */
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styling for the "Delete" link */
+a.delete-link {
+  color: red;
+}
+
+/* Styling for the quantity and cost columns */
+td.num {
+  text-align: right;
+}
+
+/* Styling for the total row */
+tr.total td {
+  font-weight: bold;
+}
+
+/* Optional: Add spacing between table cells */
+td {
+  padding: 8px;
+}

@@ -1,0 +1,23 @@
+.plot {
+    display: flex;
+    width: 100%;
+}
+
+.plot > img {
+    display: inline;
+    width: 80%;
+    margin: 10% 10% 0;
+    align-content: center;
+}
+
+.view-full-schedule {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    background-color: aquamarine;
+    width: 160px;
+    text-align: center;
+    border-radius: 48px;
+    color: #373b39;
+    text-decoration: none;
+
+}

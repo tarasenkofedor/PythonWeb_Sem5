@@ -1,0 +1,39 @@
+{% extends "repair_service/snippets/base.html" %}
+{% load static %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'order/css/create.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="checkout-heading">Checkout</h1>
+    <div class="order-info">
+        <h3>Your order</h3>
+        <ul class="order-list">
+            {% for item in cart %}
+                <li class="order-item">
+                    <span class="item-quantity">{{ item.quantity }}</span> x
+                    <span class="item-name">{{ item.service.name }}</span>
+                    <span class="item-total">{{ item.total_price }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <p class="order-total">Total: {{ cart.get_total_price }}</p>
+    </div>
+
+
+
+    <form action="." method="post" class="order-form">
+        <label title="select user">
+            <select name="user_email">
+                {% for email in emails %}
+                    <option value="{{ email }}">{{ email }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <p><input type="submit" value="Place order" class="order-button"></p>
+        {% csrf_token %}
+    </form>
+{% endblock %}
