@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'repair_service.apps.RepairServiceConfig',
     'account.apps.AccountConfig',
     'app_statistics.apps.AppStatisticsConfig',
+    'info_service.apps.InfoServiceConfig',
 
     # django apps
     'django.contrib.admin',
