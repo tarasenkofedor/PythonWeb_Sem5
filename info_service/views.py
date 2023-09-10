@@ -18,3 +18,7 @@ def news_list(request):
 def news_by_id(request, id):
     news = get_object_or_404(News, id=id)
     return render(request, 'info_service/news_detail.html', {'news': news})
+
+
+def faq_list(request):
+    return render(request, 'info_service/faq.html')

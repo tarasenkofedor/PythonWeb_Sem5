@@ -1,24 +1,20 @@
+{% extends 'repair_service/snippets/base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>News</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'info_service/css/news.css' %}">
-</head>
-<body>
-<h1>Actual news</h1>
-{% for news in news_list %}
-    <article>
-        <h2>{{ news.title }}</h2>
-        <p>{{ news.short_description }}</p>>
-        <a href="/info/news/{{ news.id }}">
-            <img src="{{ news.image.url }}" alt="Click to see full news"/>
-            <br>
-            Read more...
-        </a>
-    </article>
-{% endfor %}
-</body>
-</html>
+{% block title %}News{% endblock %}
+
+{% block content %}
+    <h1>Actual news</h1>
+    {% for news in news_list %}
+        <article>
+            <h2>{{ news.title }}</h2>
+            <p>{{ news.short_description }}</p>>
+            <a href="/info/news/{{ news.id }}">
+                <img src="{{ news.image.url }}" alt="Click to see full news"/>
+                <br>
+                Read more...
+            </a>
+        </article>
+    {% endfor %}
+{% endblock %}

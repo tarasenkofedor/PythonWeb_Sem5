@@ -1,60 +1,55 @@
+{% extends 'repair_service/snippets/base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About</title>
-</head>
-<body>
-<header>
-    <h1>About "Repair Center"</h1>
-</header>
-<div id="company-info">
-    <h2>About Our Company:</h2>
-    <p><strong>History:</strong></p>
-    <ul>
-        <li>2005: The company was founded as a small workshop for repairing mobile devices.</li>
-        <li>2010: We expanded our range of services to include laptops and computers repair.</li>
-        <li>2015: Opening of a new branch in a different city.</li>
-        <li>2020: We became official partners of major electronics manufacturers.</li>
-    </ul>
-    <strong>Certificate:</strong>
-    <div class="certificate">
-        <h1>Certificate of Achievement</h1>
-        <p>This is to certify that</p>
-        <h2>John Doe</h2>
-        <p>has successfully completed the course in Web Development</p>
-        <div class="signature">
-            <hr>
-            <p>Signature</p>
+
+{% block content %}
+    <header>
+        <h1>About "Repair Center"</h1>
+    </header>
+    <div id="company-info">
+        <h2>About Our Company:</h2>
+        <p><strong>History:</strong></p>
+        <ul>
+            <li>2005: The company was founded as a small workshop for repairing mobile devices.</li>
+            <li>2010: We expanded our range of services to include laptops and computers repair.</li>
+            <li>2015: Opening of a new branch in a different city.</li>
+            <li>2020: We became official partners of major electronics manufacturers.</li>
+        </ul>
+        <strong>Certificate:</strong>
+        <div class="certificate">
+            <h1>Certificate of Achievement</h1>
+            <p>This is to certify that</p>
+            <h2>John Doe</h2>
+            <p>has successfully completed the course in Web Development</p>
+            <div class="signature">
+                <hr>
+                <p>Signature</p>
+            </div>
         </div>
+        <p><strong>Contact Information:</strong></p>
+        <ul>
+            <li>Company Name: Repair Center</li>
+            <li>Legal Address: 123 Example Street, City</li>
+            <li>Phone: +7 (123) 456-7890</li>
+            <li>Email: info@repaircenter.com</li>
+            <li>OGRN (Primary State Registration Number): 1234567890</li>
+            <li>TIN (Taxpayer Identification Number): 0987654321</li>
+            <li>Bank Account: 98765432109876543210 at Reliable Bank</li>
+        </ul>
     </div>
-    <p><strong>Contact Information:</strong></p>
-    <ul>
-        <li>Company Name: Repair Center</li>
-        <li>Legal Address: 123 Example Street, City</li>
-        <li>Phone: +7 (123) 456-7890</li>
-        <li>Email: info@repaircenter.com</li>
-        <li>OGRN (Primary State Registration Number): 1234567890</li>
-        <li>TIN (Taxpayer Identification Number): 0987654321</li>
-        <li>Bank Account: 98765432109876543210 at Reliable Bank</li>
-    </ul>
-</div>
-<div id="video">
-    <h2>Video:</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"
-            allowfullscreen>
-    </iframe>
-</div>
-<div id="logo">
-    <h2>Logo:</h2>
-    <img src="{% static 'info_service/img/repair_center_logo.jpg' %}" alt="Logo of 'Repair Center'" title="logo"
-         style="max-height: 300px">
-</div>
-<footer>
+    <div id="video">
+        <h2>Video:</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"
+                allowfullscreen>
+        </iframe>
+    </div>
+    <div id="logo">
+        <h2>Logo:</h2>
+        <img src="{% static 'info_service/img/repair_center_logo.jpg' %}" alt="Logo of 'Repair Center'" title="logo"
+             style="max-height: 300px">
+    </div>
+    <hr>
     <p>We strive to be the best in our field, providing high-quality services at reasonable prices. Thank you for
         choosing us - your device is in safe hands with "Repair Center".</p>
-</footer>
-</body>
-</html>
+{% endblock %}
