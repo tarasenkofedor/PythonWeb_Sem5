@@ -10,6 +10,7 @@
     <body>
     <article>
         <h1>{{ news.title }}</h1>
+        <p>{{ news.created_at }}</p>
         <h2>{{ news.short_description }}</h2>
         <img src="{{ news.image.url }}" alt="News image" style="max-height: 400px"/>
         <pre>{{ news.text|safe }}</pre>

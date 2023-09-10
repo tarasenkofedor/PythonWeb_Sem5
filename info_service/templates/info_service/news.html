@@ -9,6 +9,7 @@
     {% for news in news_list %}
         <article>
             <h2>{{ news.title }}</h2>
+            <p>{{ news.created_at }}</p>
             <p>{{ news.short_description }}</p>>
             <a href="/info/news/{{ news.id }}">
                 <img src="{{ news.image.url }}" alt="Click to see full news"/>

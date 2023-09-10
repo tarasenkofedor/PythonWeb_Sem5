@@ -22,3 +22,7 @@ def news_by_id(request, id):
 
 def faq_list(request):
     return render(request, 'info_service/faq.html')
+
+
+def privacy_policy(request):
+    return render(request, 'info_service/privacy_policy.html')

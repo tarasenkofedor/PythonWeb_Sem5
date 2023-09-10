@@ -8,7 +8,11 @@
 {% endblock %}
 
 {% block content %}
-    <h4>Joke for developer: {{ joke }}</h4>
+    <label>
+        Joke for developer
+        <q>{{ joke }}</q>
+    </label>
+
     <div class="container">
         <div class="d-flex flex-column">
             <div class="services-container">
@@ -33,7 +37,8 @@
                                 </div>
                                 <span class="service-price">Price: {{ service.price }}$</span>
                                 <div class="service-buttons">
-                                    <button class="detail-button" onclick="location.href='/services/{{ service.id }}'">
+                                    <button class="detail-button"
+                                            onclick="location.href='/services/{{ service.id }}'">
                                         Detail
                                     </button>
                                 </div>
