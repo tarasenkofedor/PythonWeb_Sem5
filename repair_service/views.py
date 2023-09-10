@@ -2,6 +2,7 @@ import requests
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
 from cart.forms import CartAddProductForm
+from info_service.models import News
 from repair_service.forms import ServiceForm
 from repair_service.models import Service
 import logging
@@ -11,8 +12,9 @@ JOKE_API = 'https://official-joke-api.appspot.com/jokes/programming/random'
 
 
 def home_screen_view(request):
+    latest_news = News.objects.latest('created_at')
     logger.info('INFO: Show home page')
-    return render(request, 'repair_service/home.html')
+    return render(request, 'repair_service/home.html', {'latest_news': latest_news})
 
 
 def service_list(request):

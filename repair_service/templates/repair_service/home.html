@@ -21,5 +21,33 @@
             </div>
         </div>
     </div>
+    <h1 style="color: black">The hottest news!</h1>
+    <article>
+        <h2>{{ latest_news.title }}</h2>
+        <p>{{ latest_news.short_description }}</p>>
+        <a href="/info/news/{{ latest_news.id }}">
+            <img src="{{ latest_news.image.url }}" alt="Click to see full news" style="max-height: 200px"/>
+            <br>
+            Read more...
+        </a>
+    </article>
+
+    <section class="partners">
+        <h1 style="color: black">Our partners:</h1>
+        <ul class="partners-list">
+            <li>
+                <img src="{% static 'info_service/img/apple.png' %}" alt="Apple" width="100" height="100">
+                <p>Apple</p>
+            </li>
+            <li>
+                <img src="{% static 'info_service/img/microsoft.png' %}" alt="Microsoft" width="100" height="100">
+                <p>Microsoft</p>
+            </li>
+            <li>
+                <img src="{% static 'info_service/img/google.png' %}" alt="Google" width="100" height="100">
+                <p>Google</p>
+            </li>
+        </ul>
+    </section>
 
 {% endblock %}
