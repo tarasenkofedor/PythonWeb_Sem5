@@ -22,7 +22,7 @@
         </div>
     </div>
     <h1 style="color: black">The hottest news!</h1>
-    <article>
+    <section>
         <h2>{{ latest_news.title }}</h2>
         <p>{{ latest_news.short_description }}</p>>
         <a href="/info/news/{{ latest_news.id }}">
@@ -30,22 +30,29 @@
             <br>
             Read more...
         </a>
-    </article>
-
+    </section>
+    <hr>
     <section class="partners">
         <h1 style="color: black">Our partners:</h1>
-        <ul class="partners-list">
+        <ul class="partners-list" style="list-style: none; display: flex;">
             <li>
-                <img src="{% static 'info_service/img/apple.png' %}" alt="Apple" width="100" height="100">
-                <p>Apple</p>
+                <a href="https://apple.com">
+                    <img src="{% static 'info_service/img/apple.png' %}" alt="Apple" width="100" height="100">
+                    <p>Apple</p>
+                </a>
+
             </li>
             <li>
-                <img src="{% static 'info_service/img/microsoft.png' %}" alt="Microsoft" width="100" height="100">
-                <p>Microsoft</p>
+                <a href="https://microsoft.com">
+                    <img src="{% static 'info_service/img/microsoft.png' %}" alt="Microsoft" width="100" height="100">
+                    <p>Microsoft</p>
+                </a>
             </li>
             <li>
-                <img src="{% static 'info_service/img/google.png' %}" alt="Google" width="100" height="100">
-                <p>Google</p>
+                <a href="https://google.com">
+                    <img src="{% static 'info_service/img/google.png' %}" alt="Google" width="100" height="100">
+                    <p>Google</p>
+                </a>
             </li>
         </ul>
     </section>
