@@ -1,0 +1,34 @@
+{% extends 'repair_service/snippets/base.html' %}
+
+{% load static %}
+
+{% block title %}Sales{% endblock %}
+
+{% block content %}
+    {% if active_codes.count == 0 %}
+        <h1>There are no avaiable codes😢</h1>
+    {% else %}
+        <section>
+            <h1>Available promocodes</h1>
+            {% for promocode in active_codes %}
+                <div class="promo-code">
+                    <hr>
+                    <p><b>Code </b> {{ promocode.code }}</p>
+                    <p><b>Discount</b> {{ promocode.discount }}</p>
+                    <p><b>Expiration date</b> {{ promocode.expiration_date }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+    <section>
+        <h1>Archived promocodes</h1>
+        {% for promocode in active_codes %}
+            <div class="promo-code">
+                <hr>
+                <p><b>Code </b> {{ promocode.code }}</p>
+                <p><b>Discount</b> {{ promocode.discount }}</p>
+                <p><b>Expiration date</b> {{ promocode.expiration_date }}</p>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

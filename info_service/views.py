@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-
-from info_service.models import News
+from django.db.models import Q
+from datetime import date
+from info_service.models import News, PromoCode, Vacancy
 
 
 # Create your views here.
@@ -30,3 +31,24 @@ def privacy_policy(request):
 
 def our_workers(request):
     return render(request, 'info_service/workers.html')
+
+
+def sales(request):
+    current_date = date.today()
+    active_codes = PromoCode.objects.filter(
+        expiration_date__gte=current_date,
+        activated=False
+    )
+    inactive_codes = PromoCode.objects.filter(
+        Q(expiration_date__lt=current_date) | Q(activated=True)
+    )
+
+    return render(request, 'info_service/sales.html', {
+        'active_codes': active_codes,
+        'inactive_codes': inactive_codes
+    })
+
+
+def vacancy_list(request):
+    vacancies = Vacancy.objects.all()
+    return render(request, 'info_service/vacancies.html', {'vacancies': vacancies})
