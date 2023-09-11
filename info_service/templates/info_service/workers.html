@@ -1,0 +1,38 @@
+{% extends 'repair_service/snippets/base.html' %}
+
+{% load static %}
+
+{% block title %}Our workers{% endblock %}
+
+{% block content %}
+
+    <body>
+    <header>
+        <h1>Repair Service Center</h1>
+    </header>
+
+    <div class="employee">
+        <h2>John Doe</h2>
+        <img src="{% static 'info_service/img/john_doe.jpeg' %}" alt="Employee 1">
+        <p>Repair Technician. Able to fix all your troubles</p>
+        <p>Phone: 375 (44) 456-78-90</p>
+        <p>Email: john.doe@gmail.com</p>
+    </div>
+
+    <div class="employee">
+        <h2>Egor Savonchik😈</h2>
+        <img src="{% static 'info_service/img/savonchik.jpg' %}" alt="Savonchik worker">
+        <p>Customer Support. Make cold calls. Always sleep</p>
+        <p>Phone: +375 (29) 654-32-10</p>
+        <p>Email: egor.savonchik@gmail.com</p>
+    </div>
+
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p>If you have any questions or need our repair services, feel free to reach out to any of our team members
+            listed
+            above.</p>
+        <p>Address: Gikalo 9, Minsk, Belarus</p>
+    </div>
+    </body>
+{% endblock %}

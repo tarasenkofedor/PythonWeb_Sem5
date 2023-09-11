@@ -26,3 +26,7 @@ def faq_list(request):
 
 def privacy_policy(request):
     return render(request, 'info_service/privacy_policy.html')
+
+
+def our_workers(request):
+    return render(request, 'info_service/workers.html')
