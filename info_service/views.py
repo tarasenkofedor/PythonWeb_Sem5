@@ -68,7 +68,7 @@ def create_feedback(request):
     if request.method == 'POST':
         request_data = request.POST
         feedback = Feedback(
-            reviewer_name=request_data.get('reviewer_name'),
+            reviewer=request.user,
             used_service=Service.objects.filter(name=request_data.get('used_service')).first(),
             text=request_data.get('text'),
             score=int(request_data.get('score'))

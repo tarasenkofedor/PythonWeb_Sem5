@@ -1,6 +1,7 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
+from account.models import Account
 from repair_service.models import Service
 
 
@@ -41,15 +42,17 @@ class Vacancy(models.Model):
 
 
 class Feedback(models.Model):
-    reviewer_name = models.CharField(max_length=30)
+    reviewer = models.OneToOneField(
+        Account,
+        on_delete=models.CASCADE
+    )
     used_service = models.OneToOneField(
         Service,
-        on_delete=models.CASCADE,
-        primary_key=True,
+        on_delete=models.CASCADE
     )
     text = models.TextField(max_length=256)
     score = models.SmallIntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.reviewer_name}-{self.score}'
+        return f'{self.reviewer.email}-{self.score}'
