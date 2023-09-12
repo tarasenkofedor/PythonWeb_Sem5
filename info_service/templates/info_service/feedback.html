@@ -7,10 +7,10 @@
 {% block content %}
     <h1>Existing feedbacks</h1>
     {% for feedback in feedbacks %}
-        <p>Author: {{ feedback.reviewer.username }}</p>
-        <p>Used service: {{ feedback.used_service.name }}</p>
+        <p><b>Author: </b>{{ feedback.reviewer.username }}</p>
+        <p><b>Used service: </b>{{ feedback.used_service.name }}</p>
         <pre>{{ feedback.text }}</pre>
-        <p>{{ feedback.score }}/10⭐</p>
+        <p><b>Score: </b>{{ feedback.score }}/10⭐</p>
         <p>Date: {{ feedback.created_at }}</p>
     {% endfor %}
 

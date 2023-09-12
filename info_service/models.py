@@ -42,11 +42,11 @@ class Vacancy(models.Model):
 
 
 class Feedback(models.Model):
-    reviewer = models.OneToOneField(
+    reviewer = models.ForeignKey(
         Account,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
-    used_service = models.OneToOneField(
+    used_service = models.ForeignKey(
         Service,
         on_delete=models.CASCADE
     )
