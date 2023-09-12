@@ -1,0 +1,47 @@
+{% extends 'repair_service/snippets/base.html' %}
+
+{% load static %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block content %}
+    <h1>Existing feedbacks</h1>
+    {% for feedback in feedbacks %}
+        <h2>{{ feedback.reviewer_name }}</h2>
+        <p>Used service: {{ feedback.used_service.name }}</p>
+        <pre>{{ feedback.text }}</pre>
+        <p>{{ feedback.score }}/10⭐</p>
+        <p>Date: {{ feedback.created_at }}</p>
+    {% endfor %}
+
+    <h1>Send Your Feedback!</h1>
+    <h2>Just fill few lines</h2>
+    <form method="post" action="{% url 'info_service:create_feedback' %}">
+        {% csrf_token %}
+        <label>
+            Reviewer Name:
+            <input type="text" name="reviewer_name" maxlength="30" required>
+        </label>
+        <br><br>
+        <label>
+            Used Service:
+            <select id="used_service" name="used_service" required>
+                {% for service in available_services %}
+                    <option>{{ service.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <br><br>
+        <label>
+            Feedback Text:
+            <textarea id="id_text" name="text" maxlength="256" required></textarea>
+        </label>
+        <br><br>
+        <label>
+            Score (0-10):
+            <input type="number" id="id_score" name="score" min="0" max="10" required>
+        </label>
+        <br><br>
+        <button type="submit">Submit Feedback</button>
+    </form>
+{% endblock %}

@@ -11,5 +11,7 @@ urlpatterns = [
     path('privacy_policy', views.privacy_policy, name='privacy_policy'),
     path('workers', views.our_workers, name='workers'),
     path('sales', views.sales, name='sales'),
-    path('vacancies', views.vacancy_list, name='vacancies')
+    path('vacancies', views.vacancy_list, name='vacancies'),
+    path('feedback', views.feedbacks_page, name='feedbacks_page'),
+    path('feedback/create/', views.create_feedback, name='create_feedback')
 ]

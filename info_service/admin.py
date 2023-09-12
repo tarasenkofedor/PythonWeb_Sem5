@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from info_service.models import News, PromoCode, Vacancy
+from info_service.models import News, PromoCode, Vacancy, Feedback
 
 
 # Register your models here.
@@ -17,4 +17,9 @@ class PromoCodeAdmin(admin.ModelAdmin):
 
 @admin.register(Vacancy)
 class VacancyAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
     pass
