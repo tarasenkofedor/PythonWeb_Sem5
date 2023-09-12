@@ -6,24 +6,18 @@
 
 {% block content %}
     <header>
-        <h1>Repair Service Center</h1>
+        <h1>Repair Service Center Workers</h1>
     </header>
-
-    <div class="employee">
-        <h2>John Doe</h2>
-        <img src="{% static 'info_service/img/john_doe.jpeg' %}" alt="Employee 1">
-        <p>Repair Technician. Able to fix all your troubles</p>
-        <p>Phone: 375 (44) 456-78-90</p>
-        <p>Email: john.doe@gmail.com</p>
-    </div>
-
-    <div class="employee">
-        <h2>Egor Savonchik😈</h2>
-        <img src="{% static 'info_service/img/savonchik.jpg' %}" alt="Savonchik worker">
-        <p>Customer Support. Make cold calls. Always sleep</p>
-        <p>Phone: +375 (29) 654-32-10</p>
-        <p>Email: egor.savonchik@gmail.com</p>
-    </div>
+    {% for worker in workers %}
+        <div itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name"><strong>{{ worker.name }}</strong></span><br>
+            <span itemprop="jobTitle"><b>Job title: </b>{{ worker.job_title }}</span><br>
+            <span itemprop="age"><b>Age: </b>{{ worker.age }}</span><br>
+            <b>Email: </b><a itemprop="email" href="mailto:{{ worker.email }}">{{ worker.email }}</a><br>
+            <b>Phone: </b><a itemprop="telephone" href="tel:{{ worker.phone }}">{{ worker.phone }}</a><br>
+            <img itemprop="image" src="{{ worker.image.url }}" alt="{{ worker.name }}"/><br>
+        </div>
+    {% endfor %}
 
     <div class="contact-info">
         <h2>Contact Information</h2>

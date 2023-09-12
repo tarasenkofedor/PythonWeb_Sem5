@@ -5,7 +5,7 @@
 {% block title %}Vacancies{% endblock %}
 
 {% block content %}
-    <h1>Vacancies in Repair Center</h1>
+    <h1 id="vacancy_header">Vacancies in Repair Center</h1>
     <ul>
         {% for vacancy in vacancies %}
             <li>
@@ -17,4 +17,5 @@
             </li>
         {% endfor %}
     </ul>
+    <a href="#vacancy_header">Go to beginning</a>
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 from django.db import models
 
 from account.models import Account
@@ -56,3 +56,23 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f'{self.reviewer.email}-{self.score}'
+
+
+class Worker(models.Model):
+    name = models.CharField(max_length=256)
+    age = models.SmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(150)])
+    job_title = models.CharField(max_length=100)
+    phone = models.CharField(
+        max_length=20,
+        validators=[RegexValidator(r'^\+?1?\d{9,15}$')]
+    )
+    email = models.EmailField(unique=True)
+    image = models.ImageField(
+        upload_to='info_service/workers',
+        help_text='Worker image',
+        blank=True,
+        null=True
+    )
+
+    def __str__(self):
+        return self.name

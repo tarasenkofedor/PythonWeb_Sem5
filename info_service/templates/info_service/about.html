@@ -2,7 +2,6 @@
 
 {% load static %}
 
-
 {% block content %}
     <header>
         <h1>About "Repair Center"</h1>
@@ -16,15 +15,59 @@
             <li>2015: Opening of a new branch in a different city.</li>
             <li>2020: We became official partners of major electronics manufacturers.</li>
         </ul>
-        <strong>Certificate:</strong>
         <div class="certificate">
-            <h1>Certificate of Achievement</h1>
-            <p>This is to certify that</p>
-            <h2>John Doe</h2>
-            <p>has successfully completed the course in Web Development</p>
-            <div class="signature">
-                <hr>
-                <p>Signature</p>
+            <div class="header">
+                <h2>Repair Service Certificate</h2>
+            </div>
+            <div class="customer-info">
+                <p><strong>Certificate Number:</strong> 123456</p>
+                <p><strong>Date of Service:</strong> September 20, 2023</p>
+                <p><strong>Customer Name:</strong> John Doe</p>
+                <p><strong>Customer Contact Information:</strong> john.doe@example.com</p>
+            </div>
+            <div class="item-info">
+                <p><strong>Description of Repaired Item:</strong></p>
+                <ul>
+                    <li><strong>Product Name:</strong> Laptop</li>
+                    <li><strong>Brand:</strong> Dell</li>
+                    <li><strong>Model:</strong> Inspiron 15</li>
+                    <li><strong>Serial Number:</strong> ABC123456</li>
+                </ul>
+            </div>
+            <div class="repair-info">
+                <p><strong>Description of Repair Work:</strong></p>
+                <ul>
+                    <li><strong>Issue/Problem:</strong> Screen replacement</li>
+                    <li><strong>Repair/Service Performed:</strong> Replaced the laptop screen with a new one.</li>
+                    <li><strong>Replacement Parts (if any):</strong> LCD screen</li>
+                </ul>
+            </div>
+            <div class="technician-info">
+                <p><strong>Repair Technician:</strong></p>
+                <p><strong>Technician Name:</strong> Jane Smith</p>
+                <p><strong>Technician Contact Information:</strong> jane.smith@example.com</p>
+            </div>
+            <div class="charges">
+                <p><strong>Service Charges:</strong></p>
+                <p><strong>Total Service Cost:</strong> $150.00</p>
+                <p><strong>Payment Method:</strong> Credit Card</p>
+            </div>
+            <div class="warranty">
+                <p><strong>Warranty Information:</strong></p>
+                <p><strong>Warranty Period:</strong> 90 days</p>
+                <p><strong>Terms and Conditions:</strong> This warranty covers the replaced screen for 90 days from the
+                    date of service.</p>
+            </div>
+            <div class="customer-signature">
+                <p>Customer Signature: __________________________</p>
+            </div>
+            <p>Thank you for choosing our repair service. If you have any questions or concerns, please don't hesitate
+                to contact us.</p>
+            <div class="footer">
+                <p><strong>Company Name:</strong> ABC Repair Services</p>
+                <p><strong>Company Address:</strong> 123 Main Street, Cityville</p>
+                <p><strong>Company Phone Number:</strong> (555) 123-4567</p>
+                <p><strong>Company Website:</strong> www.abcrepair.com</p>
             </div>
         </div>
         <p><strong>Contact Information:</strong></p>
@@ -52,4 +95,5 @@
     <hr>
     <p>We strive to be the best in our field, providing high-quality services at reasonable prices. Thank you for
         choosing us - your device is in safe hands with "Repair Center".</p>
+    <a href="{% static 'info_service/file_to_download.txt' %}" download>DOWNLOAD DOCUMENT HERE</a>
 {% endblock %}

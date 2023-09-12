@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from datetime import date
-from info_service.models import News, PromoCode, Vacancy, Feedback
+from info_service.models import News, PromoCode, Vacancy, Feedback, Worker
 from repair_service.models import Service
 
 
@@ -31,7 +31,8 @@ def privacy_policy(request):
 
 
 def our_workers(request):
-    return render(request, 'info_service/workers.html')
+    workers = Worker.objects.all()
+    return render(request, 'info_service/workers.html', {'workers': workers})
 
 
 def sales(request):

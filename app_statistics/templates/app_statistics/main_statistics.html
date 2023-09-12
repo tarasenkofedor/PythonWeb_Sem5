@@ -4,11 +4,12 @@
 {% block title %}Statisctics{% endblock %}
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'app_statistics/css/statistics.css' %}">
+    <link rel="stylesheet" href="{% static 'app_statistics/css/statistics.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class="plot">
-        <img src="{% static 'app_statistics/img/main_statistics.png' %}" alt="main statistics">
-    </div>
+    <figure>
+        <img src="{% static 'app_statistics/img/main_statistics.png' %}" alt="Application statistics">
+        <figcaption>Application statistics</figcaption>
+    </figure>
 {% endblock %}
