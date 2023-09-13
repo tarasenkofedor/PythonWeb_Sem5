@@ -4,51 +4,62 @@
 {% block title %}Services{% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'repair_service/css/services.css' %}">
+<link rel="stylesheet" href="{% static 'repair_service/css/services.css' %}">
 {% endblock %}
 
 {% block content %}
-    <label>
-        Joke for developer
-        <q>{{ joke }}</q>
-    </label>
+<label>
+    Joke for developer
+    <q>{{ joke }}</q>
+</label>
 
-    <div class="container">
-        <div class="d-flex flex-column">
-            <div class="services-container">
-                {% if request.user.is_admin %}
-                    <form method="GET" action="/services/create">
-                        <input type="submit" value="Create service" class="button-style create-service-button"/>
-                    </form>
-                {% endif %}
-                {% if services.count > 0 %}
-                    <h1 class="title">Available services:</h1>
-                    <br>
-                    <div class="services">
-                        {% for service in services %}
-                            <div class="service">
-                                <img src="{{ service.image.url }}" alt="Service Image" class="service-image">
-                                <h2 class="service-title">{{ service.name }}</h2>
-                                <p class="service-description">{{ service.about }}</p>
-                                <div class="service-tags">
-                                    {% for service_tag in service.service_tags.all %}
-                                        <span class="tag">{{ service_tag.name }}</span>
-                                    {% endfor %}
-                                </div>
-                                <span class="service-price">Price: {{ service.price }}$</span>
-                                <div class="service-buttons">
-                                    <button class="detail-button"
-                                            onclick="location.href='/services/{{ service.id }}'">
-                                        Detail
-                                    </button>
-                                </div>
-                            </div>
+<div class="container">
+    <div class="d-flex flex-column">
+        <div class="services-container">
+            {% if request.user.is_admin %}
+            <form method="GET" action="/services/create">
+                <input type="submit" value="Create service" class="button-style create-service-button"/>
+            </form>
+            {% endif %}
+            <form method="get">
+                <select name="tag">
+                    <option value="">All</option>
+                    {% for tag in tags %}
+                    <option value="{{ tag.name }}" {% if tag.name == selected_tag %}selected{% endif %}>
+                        {{ tag.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Filter</button>
+            </form>
+            {% if services.count > 0 %}
+            <h1 class="title">Available services:</h1>
+            <br>
+            <div class="services">
+                {% for service in services %}
+                <div class="service">
+                    <img src="{{ service.image.url }}" alt="Service Image" class="service-image">
+                    <h2 class="service-title">{{ service.name }}</h2>
+                    <p class="service-description">{{ service.about }}</p>
+                    <div class="service-tags">
+                        {% for service_tag in service.service_tags.all %}
+                        <span class="tag">{{ service_tag.name }}</span>
                         {% endfor %}
                     </div>
-                {% else %}
-                    <h2>No available services :(</h2>
-                {% endif %}
+                    <span class="service-price">Price: {{ service.price }}$</span>
+                    <div class="service-buttons">
+                        <button class="detail-button"
+                                onclick="location.href='/services/{{ service.id }}'">
+                            Detail
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
+            {% else %}
+            <h2>No available services :(</h2>
+            {% endif %}
         </div>
     </div>
+</div>
 {% endblock content %}

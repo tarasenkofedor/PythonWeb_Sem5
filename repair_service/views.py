@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from cart.forms import CartAddProductForm
 from info_service.models import News
 from repair_service.forms import ServiceForm
-from repair_service.models import Service
+from repair_service.models import Service, ServiceTag
 import logging
 
 logger = logging.getLogger('')
@@ -19,12 +19,19 @@ def home_screen_view(request):
 
 def service_list(request):
     logger.info('INFO: Get all services from database')
+    tags = ServiceTag.objects.all()
     services = Service.objects.all()
+
+    selected_tag = request.GET.get('tag')
+    if selected_tag:
+        services = Service.objects.filter(service_tags__name=selected_tag)
+
     logger.info(f"INFO: Send request to API '{JOKE_API}'")
     joke_data = requests.get(JOKE_API).json()[0]
     joke = joke_data['setup'] + joke_data['punchline']
     return render(request, 'repair_service/services.html', {
         'services': services,
+        'tags': tags,
         'joke': joke
     })
 
