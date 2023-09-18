@@ -11,17 +11,17 @@
 {% block content %}
     <div class="container">
         <div class="image">
-            <img src="{% static 'repair_service/img/background.jpg' %}" alt="">
+            <img src="{% static 'repair_service/img/background.jpeg' %}" alt="">
             <div class="overlay"></div>
             <div class="content">
-                <h1>Welcome to Repair Service</h1>
-                <p>We offer high-quality repair services for all your electronic devices.</p>
-                <p>Contact us today to get your devices fixed!</p>
-                <a href="{% url 'service_list' %}" class="cta-button">See available services</a>
+                <h1 style="font-family: Courier New">Welcome to Los Pollos Hermanos!</h1>
+                <p style="font-family: Courier New">We offer high-quality food services for each and everyone</p>
+                <p style="font-family: Courier New">Visit us today to taste our new Pollos Burger!</p>
+                <a href="{% url 'service_list' %}" class="cta-button">Let's eat!</a>
             </div>
         </div>
     </div>
-    <h1 style="color: black">The hottest news!</h1>
+    <h1 style="color: black">Our news</h1>
     <section>
         <h2>{{ latest_news.title }}</h2>
         <p>{{ latest_news.short_description }}</p>>
